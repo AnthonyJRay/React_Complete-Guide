@@ -1,0 +1,85 @@
+What is React?
+"A JavaScript library for building User Interfaces"
+
+Why use React?
+"UI State becomes difficult to handle with Vanilla JavaScript."
+"Focus on Business Logic, not on preventing your App from breaking."
+"Huge Ecosystem, Active Community, High Performance."
+
+React Alternative
+"Angular" "React" "Vue"
+"jQuery is more about traversing the dom."
+
+Single Page Applications vs Multipage Applications
+"SPA - Only ONE HTML page, Content is re-redered on Client"
+"MPA - Multiple HTML Pages, Content is redendered on server"
+"If you manage the entire page with JavaScript, you never have to go back to the server to reload the page"
+"With SPA, you typically only need ONE ReactDOM.render() call."
+"With MPA, You need a ReactDOM.render() call per each component."
+
+
+Course Outline
+--------------
+1.  Getting Started
+2.  The Basics
+3.  Debugging
+4.  Styling Components
+5.  Components Deep Dive
+6.  HTTP Requests
+7.  Routing
+8.  Forms & Validation
+9.  Redux
+10. Authentication
+11. Intro to Testing
+12. Deployment
+13. Bonus - Animations, Next Steps, Webpack, NextJS, Etc.
+
+
+1. Getting Started
+-------------------
+
+-- ES6 Refresher
+
+"let - variable values"
+"const - constant value"
+
+"arrow functions"
+function printMyName(name) {
+  console.log(name);
+}
+printMyName('Anthony');
+
+"As an arrow function"
+const printMyName = name => console.log(name);
+printMyName('Anthony');
+
+
+"Exports and Imports"
+Inside a JavaScript file, we can import content from another file.
+
+"Import Syntax Examples"
+import person from './person.js'
+
+-or-
+
+import{baseData} from './utility'
+import{clean} from './utility'
+
+baseData and/or clean imports is for targetting specific data.
+It is also known as "named exports".
+If using a named export, you must import using the exact name you are exporting.
+If using a default export, you can name them whatever you like as long as the file path is correct.
+
+
+"Classes"
+---------
+
+A class is created with the "class" keyword.
+A class can have both "properties" and "methods"
+"Properties" are like variables within classes.
+"Methods" are like functions within classes.
+
+
+
+
+

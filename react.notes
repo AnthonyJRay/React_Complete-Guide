@@ -35,7 +35,7 @@ Course Outline
 13. Bonus - Animations, Next Steps, Webpack, NextJS, Etc.
 
 
-1. Getting Started
+-Getting Started-
 -------------------
 
 -- ES6 Refresher
@@ -71,7 +71,7 @@ If using a named export, you must import using the exact name you are exporting.
 If using a default export, you can name them whatever you like as long as the file path is correct.
 
 
-"Classes"
+-React Classes-
 ---------
 
 A class is created with the "class" keyword.
@@ -79,6 +79,38 @@ A class can have both "properties" and "methods"
 "Properties" are like variables within classes.
 "Methods" are like functions within classes.
 
+Classes are kind of like Constructory functions.
+Create JavaScript objects with classes with blueprints.
+Classes support inheritence.
+
+When creating a class, if it contains any properties,
+you must put them inside of a "Constructor Method"
+
+class Example {
+  constructor() {
+    this.sample = 'Sample';
+  }
+}
+
+
+When extending a class to another, you must include the
+special "super();" keyword to inherit the classes properties.
+
+class ExampleTwo extends Example {
+  constructor() {
+    super();
+    this.sample2 = 'Another Sample';
+  }
+}
+
+The "super()" keyword goes inside the constructor function.
+
+When you extend a class to another classes properties, 
+you can still hard code in the extended classes properties and override
+the inherited properties. Not best practice, or a good habit.
+
+Classes are just "blueprints" for JavaScript "objects" and are 
+very comparable to constructor functions, and inheritence is comparable to prototypes.
 
 
 

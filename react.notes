@@ -282,4 +282,16 @@ And when you reassign them, you are copying the "Pointer" not the value.
 
 -Array Functions Refresher-
 
+Each one of these array functions take an arrow function as a parameter.
+The function then gets executed on each item in the array as it is iterated.
 
+-Examples-
+-------------------
+const numbers = [1, 2, 3];
+
+const doubleNumArray = numbers.map((num) => {
+  return num*2;
+});
+
+console.log(numbers); // [1, 2, 3]
+console.log(doubleNumArray) // [2, 4, 6]

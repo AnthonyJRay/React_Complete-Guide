@@ -225,5 +225,61 @@ So the syntax: "{name}" targets the name property in the above object, and pulls
 This is why "age" returns undefined, as we are only pulling the "name" property out of the object.
 
 
+-Reference and Primitive Types refresher-
+
+-Primitive types-
+"Numbers, Strings, Booleans" these are "Primitive Types"
+Whenever you reassign or store a variable inside another variable, it will copy the value.
+
+-Reference Types-
+"Objects, Arrays" these are "Reference Types"
+When you reassign an object variable to another variable, it still stores it's values,
+but it does "NOT" copy it's values.
+
+ObjectA will be stored inside memory, whereas object B will store a "POINTER", that is pointing to object "A"
+
+-Examples-
+------------------------------
+const person = {
+  name: "Anthony"
+};
+
+const secondPerson = person;
+
+person.name = "Vincent";
+
+console.log(secondPerson;) // name: "Vincent"
+------------------------------
+
+This is important in React as it can cause unexpected behaviors,
+if you "copy" arrays and objects like this, because you may manipulate one object in one place,
+and accidently manipulate another usage of the same object somewhere else in the application.
+
+This is where the "spread operator" becomes handy and important,
+because with the "spread operator" you are literally making a new "copy",
+without manipulating the original values.
+
+------------------------------
+const person = {
+  name: 'Anthony'
+};
+
+const secondPerson = {
+  ...person;
+}
+
+person.name = 'Vincent';
+
+console.log(secondPerson); // name: "Anthony"
+-------------------------------
+
+The "name" property remains unchanged, as "secondPerson" it it's own copy first, of the original values.
+instead of storing a "pointer", pointing to the "location" of the object.
+
+It's important to remember, "Objects" and "Arrays" are "Reference Types".
+And when you reassign them, you are copying the "Pointer" not the value.
+
+
+-Array Functions Refresher-
 
 

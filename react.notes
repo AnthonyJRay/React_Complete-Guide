@@ -113,6 +113,85 @@ Classes are just "blueprints" for JavaScript "objects" and are
 very comparable to constructor functions, and inheritence is comparable to prototypes.
 
 
+-Classes Properties Methods-
+
+"Properties" are like "variables attached to classes and objects"
+"Methods" are like "functions attached to classes and objects"
+
+
+-NextJS syntax-
+---------------
+
+"Properties"
+-ES6-
+constructor() {
+  this.myProperty = 'value'
+}
+
+-ES7-
+myProperty = 'value'
+
+When writing your property directly into a class without
+the "constructor" function, it will still be compiled behind the scenes into one.
+The ES7 syntax allows writing properties easier.
+
+
+"Methods"
+-ES6-
+myMethod() {
+
+}
+
+-ES7-
+myMethod = () => {
+
+}
+
+Same goes for methods. Although it looks as if you are just,
+taking a typical function and writing it as an arrow function(?)
+
+The advantage you have with this syntax is, when you use an arrow function,
+you don't have any problems with the "this" keyword.
+
+
+-The Spread and Rest Operators-
+-------------------------------
+"..."
+
+The "..." syntax is either a Spread or Rest operator depending on how we use it.
+
+-Spread-
+"Used in front of an array"
+
+-Examples-
+const newArray = [...oldArray,1,2]
+
+"Also can be used with Objects"
+const newObject = {...oldObject, newProp:5}
+
+Used to split up array elements OR object properties.
+
+Spread is used to take an "array" and extract the values within it,
+creating a new "array" with copies of those values, and add in new values.
+
+Must use the "spread operator" to make a "copy" of an array to manipulate it,
+because in React, state is immutable and cannot be changed.
+
+
+-Rest-
+"Used in a function arguements list"
+
+Used to "merge" a list of "function arguements"
+into an array.
+
+-Examples-
+function sortArgs(...args) {
+  return args.sort()
+}
+
+
+
+-Destructuring-
 
 
 

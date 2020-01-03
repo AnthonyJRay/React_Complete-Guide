@@ -193,5 +193,37 @@ function sortArgs(...args) {
 
 -Destructuring-
 
+"Destructuring" allows you to easily extract array elements,
+or object properties and store them in variables.
+
+-Array Destructuring-
+[a,b] = ['Hello, 'Max']
+console.log(a) // Hello
+console.log(b) // Max
+
+Using the syntax above, we can assign the values "Hello" and "Max" to variables.
+It looks like we are creating a new Array but we are not, we are assigning variables to an arrays values.
+
+Another example of "Array Destructuring might look something like,
+
+const numbers = [1, 2, 3];
+[num1, , num3] = numbers;
+console.log(num1, num3); // 1, 3
+
+You can pull are items in varied orders by using a space in one values position to skip it.
+
+
+-Object Destructuring-
+{name} = {name:'Max', age:28}
+console.log(name) // Max
+console.log(age) // undefined
+
+In "Array Destructuring", the order defines which property we take.
+Whereas in "Object Destructuring" it's the property name.
+
+So the syntax: "{name}" targets the name property in the above object, and pulls out it's value.
+This is why "age" returns undefined, as we are only pulling the "name" property out of the object.
+
+
 
 

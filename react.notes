@@ -295,3 +295,57 @@ const doubleNumArray = numbers.map((num) => {
 
 console.log(numbers); // [1, 2, 3]
 console.log(doubleNumArray) // [2, 4, 6]
+
+
+-REACT BASICS-
+
+"Build Workflow"
+----------------
+
+Why?
+"Optimize Code"
+  When we build and deploy our app, we want our code to be optimized and as small as possible.
+  This in turn boosts the performance of our app.
+
+"Next-Gen JavaScript"
+  Makes writing our code much easier and more efficient.
+  Also is the standard for writing React applications.
+  The result is a codebase that is "leaner, easier to read, faster, and less error prone"
+
+"Be more productive"
+  CSS auto prefixing, helps with adding cross-browser support code to our CSS.
+
+How?
+  "Dependency Management Tool"
+    NPM, Node Package Manager.
+    NPM is standard.
+
+  "Bundler"
+    Webpack
+    Bundle together modules or split up files.
+
+  "Compiler"
+    Babel + Presets
+      Compile your ES6/ES7 JavaScript code down for browser support.
+
+  "Development Server"
+
+
+-Create React App-
+To install, you install it "globally" with "npm"
+Must have "Node.js" installed.
+
+"npm install -g create-react-app"
+
+To start a React application, run "create-react-app" followed by the app "name"
+
+"create-react-app myReactApp"
+
+Once the "react app" is made, "cd" into that file and run "npm start" to start the "development server".
+
+// Must leave the Terminal tab running the Local Dev Server open-
+
+
+-Understanding React folder Structure-
+
+

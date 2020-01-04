@@ -463,3 +463,59 @@ In the null space, adding curly braces, and within stating your class name, will
 
 -JSX Restrictions-
 
+Even though "JSX" looks like and "HTML", and now we know that it is actually "JavaScript",
+there are some words that cannot be used like in regular "HTML".
+
+"Class" for example, is the attribute you might use to add a "class" to an "HTML" element.
+But in "JavaScript" "class" is a reserved word.
+
+Instead, in "JSX", you must use the "className" syntax to assign an "element" a "class".
+
+-Creating a Functional Component-
+
+When creating new folders for your new component files in the "src" folder,
+it's standard practice to always start the names of those files with a uppercase, or capital.
+Within that folder, should exist the corresponding js file for your component with the matching name of the folder.
+
+-Most of the time-, the way you "should" write a "component" is as a "functional component"
+The "class components" become more useful when we start learning about "State"
+-For- now, most "components" should be written as a "functional component".
+
+// In it's simplest form, a Component, is just a JavaScript function,
+// That returns, some JSX.
+
+To create a simple "Functional Component"
+
+-Example-
+-----------------------------
+import React from 'react';
+
+const person = () => {
+  return <p>I'm a person!</p>
+}
+
+export default person
+------------------------------
+
+Above, is just a normal "Arrow Function" returning some "JSX".
+You must remember, to "import" react at the top, so that it will compile your "JSX" into JavaScript to work.
+Also, remember to export your component.
+
+Then all you would have to do, is "import" your component in the "App.js" file, starting with a capitalized character on the import name.
+
+"import Person from './Person/Person';"
+
+You can leave out the file extension on your import, as the build tools will know for you.
+
+Once imported, you can add your component a couple of ways into your render method...
+
+<Person> </Person>
+-or-
+<Person />
+
+Either syntax works. It depends on if your component is written to take in nested components.
+
+The reason for the capitalize starting character, is becaause,
+lowercase characters are reserved for HTML tags. Therefore, in order to differenciate between,
+and HTML tag and a react component, component names must start with an uppercase character.
+

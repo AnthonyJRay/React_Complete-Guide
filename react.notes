@@ -550,3 +550,17 @@ You want your components to be "Dynamic" and to update it's information based on
 
 
 -Working with Props-
+
+For normal "HTML/JSX" elements, we can pass "Attributes" like "className"
+
+Inside our "Component" JSX tags, we can add custom attributes called "props"
+In order for your component to accept props, You must pass "Props" as an arguement.
+
+-Understanding the Children Attribute-
+"Using content that is not passed as an attribute, but passed between the opening and closing tags of a component"
+
+"props.children"
+
+Children is a reserved name.
+It refers it any elements, between the opening and closing tag of a component.
+

@@ -348,4 +348,69 @@ Once the "react app" is made, "cd" into that file and run "npm start" to start t
 
 -Understanding React folder Structure-
 
+Inside the root folder is the package.json file which shows all of your app dependencies.
+It also has scripts, which can be run using NPM.
 
+The public folder, is the folder that gets served by the web server.
+It only holds the files we can edit.
+The script files are edited in the "src" folder.
+In the public folder is a single "index.html" This is the only html file we will use.
+You will never create additional HTML files, unless you are working on a Multi-Page Application.
+In which case will require a seperate type of build tools.
+
+The src folder is where we write our actual react app.
+
+Included is an image file we can remove.
+There is also an "app.css" file, where you can remove all the global styling in it.
+Included as well is an "index.css" file with a global reset styling that can be left there.
+The "app.test.js" file allows us to create "Unit Testing"
+
+In the "app.js" file, there is an "App" component.
+This is where we will include all of our other components,
+building our app through this one "app" compoenent.
+
+You can create many components, and render them individually elsewhere, but it is "not best practice"
+
+In the "App" component, all other components get nested into each other to build out your app.
+
+-Component Structure-
+
+The way to create a component is to use the "class" syntax,
+followed by the component "name", and optionally you can add the extends keyword,
+and inherit other properties from other components.
+In the included App.js file, there is an "App" component.
+
+class App extends Component {
+
+}
+
+The "Class" keyword initializes the class, or component,
+Follow by the name of the component, in this case "App"
+and it also is extending, or inheriting properties from "Component"
+"Component" is a an object, or class, that is being "IMPORTED" from the "react library"
+
+// There are OTHER ways to create components
+// Will learn that later on..
+
+The "App" component has ONE method, the "render()" method.
+It NEEDS to have that, because react will call this method, to render something to the screen.
+
+There's one important job, every react component HAS to do...
+
+// It MUST return some sort of HTML code
+// So that it can be rendered to the DOM
+// And obviously to the screen
+
+// ALL COMPONENTS MUST DO THIS
+
+At the bottom of the file is an export set to default.
+
+"export default App"
+
+This export simply means, anytime this file is imported,
+It is just importing the "App" component by default.
+
+You may also encounter some files with the ".jsx" extension instead of the ".js" extension.
+
+
+-Understanding JSX-

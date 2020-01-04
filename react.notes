@@ -414,3 +414,52 @@ You may also encounter some files with the ".jsx" extension instead of the ".js"
 
 
 -Understanding JSX-
+
+"React.createElement()" is a react method that takes at least "THREE" arguments,
+
+1. Element we want to render to the DOM.
+2. The second arguement, is the "configuration"
+3. Any amount of children, or what's nested inside the element.
+
+-Example-
+---------
+
+return React.createElement('div', null, 'h1', 'Hi, I\'m a React App!);
+---------
+
+Although, the "h1" is not being rendered as an HTML element,
+Infact, it's actually being rendered as text.
+
+If you want to create additional elements within your React.createElement()
+You will need to add another createElement method like so,
+
+return React.createElement(
+  'div',
+  null,
+  React.createElement(
+    'h1',
+    null,
+    'Hi, I\'m a React App!'
+  );
+);
+
+
+As for the configuration part, where it says null,
+That is where you can do things such as add a class to your HTML elements.
+
+return React.createElement(
+  'div',
+  {classNam: "App"}
+)
+
+In the null space, adding curly braces, and within stating your class name, will add it to your element.
+
+// Above is not how you want to write your components.
+// Above is just a demonstration of what your JSX actually compiles to.
+// It's recommended, and BEST to stick with writing with JSX syntax.
+// Although JSX may look like HTML, from looking at what it compiles to above,
+// It is obvious, and important to understand that it is NOT HTML. It is actually JavaScript.
+
+
+-JSX Restrictions-
+

@@ -564,3 +564,136 @@ In order for your component to accept props, You must pass "Props" as an argueme
 Children is a reserved name.
 It refers it any elements, between the opening and closing tag of a component.
 
+
+-Understanding and Using State-
+
+When creating "Variables" inside of a "Class", 
+you don't need to use a variable keyword. Started
+Such as: "Var" "Let" "Const"
+
+This only works in Components "Extending" Components.
+
+Where "PROPS" are set and passed from "OUTSIDE" the component,
+"STATE" is managed "INSIDE" the component.
+
+-REMEMBER-
+"STATE" is only accessible from "CLASS" based components "EXTENDING" to Component.
+
+There is a way to manage state in functional components with "React Hooks". Will cover later in course.
+
+
+Although, You should use "functional components" as often as possible,
+because you should use "STATE" with care.
+
+Having in state in all of your components, can make your app run unpredictably quickly.
+and can also make for an app that is hard to maintain.
+
+We initialize "state" by assigning it a "value". 
+The "value" being a "JavaScript Object".
+
+-------------
+state = {
+
+}
+-------------
+
+The special thing about "State" is that it can be changed.
+If it changes, it will let React re-render the DOM or update the DOM.
+
+
+-Course Notes-
+
+"props" and "state" are CORE concepts of React. Actually,
+only changes in "props" and/or "state" trigger React to
+re-render your components and potentially update the DOM
+in the browser.
+
+"Props" - Allow you to pass data from a parent (wrapping)
+component to a child (embedded) component.
+
+
+-Example-
+
+---------------------------------
+
+"AllPosts Component"
+
+const posts = () => {
+  return (
+    <div>
+      <Post title="My first Post" />
+    </div>
+  );
+}
+
+----------------------------------
+
+Here, "title" is the custom property ("prop")
+set up on the custom "Post" component. We basically replicate
+the default HTML attribute behaviour we already know
+
+eg (<input type="text">
+informs the browser about how to handle that input.)
+
+"Post Component"
+
+------------------------------
+
+const post = (props) => {
+  return (
+    <div>
+      <h1>{props.title}</h1>
+    </div>
+  );
+}
+
+-------------------------------
+
+The "Post" component receives the "props" argument. 
+You can of course name this argument whatever you want -
+it's your function definition, React doesn't care!
+
+But React will pass one argument to your component function =>
+An object, which contains all properties you set up on <Post .... />
+
+"{props.title}" then dynamically outputs the "title" property,
+of the "props" object - which is available since we set the "title" property inside "AllPosts" component(see above).
+
+
+-State-
+
+Whilst props allow you to pass data down the component tree,
+(and hence trigger an UI update), "state" is used to change the component, state, from within.
+Changes to state also trigger an UI update.
+
+-Example-
+---------------------------------------------
+
+class NewPost extends Component { // state can only be accessed in class-based components!
+    state = {
+      counter: 1
+    };
+
+    render () { // Needs to be implemented in class-based components! Must return some JSX!
+      return (
+        <div>{this.state.counter}</div>
+      );
+    }
+ }
+----------------------------------------------
+
+Here, the "NewPost" component contains "state".
+Only class-based components can define and use "state".
+You can also pass the "state" down to functional components,
+but these then can't directly edit it.
+
+"State" simply is a property of the component class,
+you have to call it "state" though - the name isn't optional.
+You can then access it via "this.state" in your class JSX code (which you return in the required "render()" method).
+
+Whenever "state" changes, the component will re-render and reflect the new state.
+The difference to "props" is, that this happens within one and the same component -
+you don't receive new data ("props") from outside!
+
+
+-Handling Events with Methods-

@@ -803,4 +803,62 @@ but you will need to use "React Hooks" to achieve this.
 
 -Using useState Hook for State Manipulation-
 
+In the release of version 16.8, "React Hooks" were released.
+"React Hooks" allow us to manage "State" in "Functional" components.
 
+// Even though it is now possible to manage State in -
+// Functional Componenents, it is still best to stick with
+// the traditional convention of managing state in your
+// Class-based components.
+
+Most likely, if you are working on a React team, you will be,
+working with an application that uses the traditional syntax.
+"React Hooks" is still new, and hasn't yet become the
+traditional method for managing state.
+
+"React Hooks" is really just a list of "Functions" of which, 
+you can use in your "Functional Components".
+
+To use "React Hooks" you must "import" them, just like "Components".
+
+To import "React Hooks" you use the "useState" keyword.
+
+"import React, { useState }, from 'react';"
+
+All "React Hooks" start with the "useState" syntax.
+
+"useState" is the MOST important "React Hook"
+"useState" allows us to use state, in a "functional component".
+
+To use "useState", you call it, like a function.
+Into the "useState" function parameters, you pass in,
+the "initial state".
+
+-Example-
+// Taking our "State" from our class-based component from earlier
+// and turning into a React Hook
+
+class
+state = {
+  persons: [
+    { name: 'Anthony', age: 30 },
+    { name: 'Debra', age: 29 },
+    { name: 'Vincent', age: 1 },
+    { name: 'Max', age: 28 },
+    { name: 'Manu', age: 29 }
+  ]
+}
+
+-to-
+
+const App = props => {
+  useState({
+    persons: [
+      { name: 'Anthony', age: 30 },
+      { name: 'Debra', age: 29 },
+      { name: 'Vincent', age: 1 },
+      { name: 'Max', age: 28 },
+      { name: 'Manu', age: 29 }
+    ]
+  });
+}

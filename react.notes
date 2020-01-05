@@ -750,7 +750,7 @@ the "this" keyword, followed by the name of the "handler".
 Remember, "this" is just pointing to our "class" component.
 
 Also, don't add the parenthesis "()" to the end of the "handler",
-or else it will run the function "upon" upon rendering.
+or else it will run the function "immediately" upon rendering.
 
 There are many other "events" you can listen for besides "onClick"
 Check the React documentation for more such as,
@@ -761,4 +761,46 @@ Check the React documentation for more such as,
 
 
 -Manipulating the State-
+
+Now with the "Handler" in place, we can start to manipulate the state.
+
+-------------------------------------------
+switchNameHandler = () => {
+  this.state.persons[0].name = "New Name";
+}
+-------------------------------------------
+// You CANNOT directly manipulate the state like this!
+
+Instead, use a special "Method" React gives you.
+
+-setState-
+
+The "setState" method, comes from the React library,
+through extending the class component to "Component"
+
+-------------------------------------------
+switchNameHandler = ({}) => {
+  this.setState()
+}
+-------------------------------------------
+
+This is a "method" that allows us to "update" the "state"
+property.
+
+That way, React will know about this "update", 
+and will update the "DOM".
+
+"setState" takes an "Object" as an arguement, and
+it will "merge" whatever we define inside the "Object",
+with our existing "state".
+
+There aren't many ways, that lead React to "update" the DOM,
+changing "State" and "Props".
+
+Now, with "Props", you can use "State" in "Functional" components,
+but you will need to use "React Hooks" to achieve this.
+
+
+-Using useState Hook for State Manipulation-
+
 

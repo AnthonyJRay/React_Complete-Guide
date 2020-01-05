@@ -697,3 +697,68 @@ you don't receive new data ("props") from outside!
 
 
 -Handling Events with Methods-
+
+"<button onClick={}></button>"
+
+Using "onClick" you then assign as a "value",
+the code you want to run, upon a click.
+
+You can use curly braces "{}"
+To then insert some "Dynamic" code.
+
+-Typically- you'll want to "execute" a "function",
+of your "class". A so-called "Method".
+
+There is a convention, to give it's name like the following -
+
+"switchNameHandler"
+
+The "switchName" part is up to you,
+but you typically use "Handler" at the end.
+To indicate, that this is a "method" you're not "actively"
+calling... but you're assigning as an "Event Handler"
+
+It is not required to follow this pattern, 
+but it is "Good Practice" to follow this naming convention.
+eg "buttonNameHandler", "clickMeHandler".
+
+Now, you'll want to turn "switchNameHandler" into a function.
+
+-----------------------------
+switchNameHandler = () => {
+
+}
+-----------------------------
+
+If we assign a "function" to the "switchNameHandler",
+it basically becomes a method.
+
+Because it still exists inside the "class-based component",
+it is kind of a "Property"
+
+But a "property" that holds a "function" for which can be "executed".
+
+From here, inside the "switchNameHandler" arrow function,
+you can now "edit" your "state".
+
+
+"<button onClick={this.switchNameHandler}> I'm a Switch! </button>
+
+To add the "switchNameHandler" to your button, simply add
+the "this" keyword, followed by the name of the "handler".
+
+Remember, "this" is just pointing to our "class" component.
+
+Also, don't add the parenthesis "()" to the end of the "handler",
+or else it will run the function "upon" upon rendering.
+
+There are many other "events" you can listen for besides "onClick"
+Check the React documentation for more such as,
+
+"onCopy"
+"onPaste"
+"onCut"
+
+
+-Manipulating the State-
+

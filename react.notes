@@ -852,7 +852,7 @@ state = {
 -to-
 
 const App = props => {
-  useState({
+ const stateArr = useState({
     persons: [
       { name: 'Anthony', age: 30 },
       { name: 'Debra', age: 29 },
@@ -862,3 +862,46 @@ const App = props => {
     ]
   });
 }
+
+"What exactly does useState do?"
+
+"useState" returns and "array" with exactly "two" elements,
+and "ALWAYS" two elements.
+
+- The "first" thing we get back will always be our "CURRENT" state,
+the "CURRENT" "initial state", as well as the "updated" changes, if there are any.
+
+- The "second" element we get back is a "function" that allows us to -
+"update" our "state". This allows "React" to be aware of it, and -
+"re-render" the "component".
+
+Which is the idea, and which is the same thing that happens with "State' -
+in "Class-Based Components".
+
+-Array Destructuring-
+
+Adding a pair of square brackets "[]" to the "left" side of the "equal sign",
+which allows you to pull elements out of the array you get back from the "equal sign"
+
+Now you just replace "this.state" with the "personsState", because,
+we are using a "functional" component instead of a class-based component,
+the "this" keyword will not work.
+"This" only pertains to a "class-based component".
+
+When using "React Hooks", the "function" we get back as our "second element",
+with "useState" that allows us to update or modify our "state",
+Does "NOT" "merge" the "new state" with the "old state".
+Instead, it "overwrites" the "old state" with the "new state".
+
+Any data from the old state you want to keep, must be manually included.
+
+The better, more elegant way to manually add existing state properties,
+is to use "useState" "multiple" times.
+
+Where as in "Class-Based" components, you only have "one" state property,
+and "this.setState" automatically "merges" changes with the old state.
+
+
+-Stateless vs Stateful Components-
+
+

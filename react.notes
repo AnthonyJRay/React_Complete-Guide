@@ -904,4 +904,39 @@ and "this.setState" automatically "merges" changes with the old state.
 
 -Stateless vs Stateful Components-
 
+No matter which type of component you use, // Class-based or Functional
+you can differinciate your components into,
+"Stateful" and "Stateless" Components.
+
+A "Stateful" Component, is a component that manages "State".
+A "Stateless" Component, is a component that has no "State Management".
+
+It is a good practice to create as many "Stateless" Components, // Dumb Components
+as possible, and as few "Stateful" Components as possible.      // Smart Components/Presentational Components
+Yu were only want a couple "Stateful" Components.
+"Of course this depends on the size of your app."
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

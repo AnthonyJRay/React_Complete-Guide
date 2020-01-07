@@ -959,6 +959,61 @@ It is "Global" css code.
 
 -Working with inline Styles-
 
+There is nothing wrong with using "css classes" and "imports" to style your component.
+But you'll often find that in React apps, you design your CSS using JavaScript.
+
+Inside your "render()" method, create an Object
+
+eg..
+
+const style = {
+  backgroundCOlor: 'white',
+  font: 'inherit',
+  border: '1x solid blue',
+  padding: '8px
+};
+
+"Remember", you are writing JavaScript, don't forget to "Camel Case".
+Also remember to wrap your values with quotations.
+
+To use your newly created "Object" styles, simply add,
+a "style={}" tag as an "attribute" to an element.
+
+set the "value" to the name of your style object.
+
+"style={style}"
+
+There are many restrictions to styling with inline styles.
+Such as, hover effects. There are many ways around these restrictions.
+Learn more later...
+
+You can use a css file, but all those styles are "global",
+and would effect everything under those styles.
+eg.
+
+button {
+
+}
+
+
+-or- 
+
+You use "inline" styling, and then the CSS is "scoped" to each JavaScript component or element.
+But there are some "restrictions".
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

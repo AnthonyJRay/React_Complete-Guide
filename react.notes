@@ -498,7 +498,7 @@ export default person
 ------------------------------
 
 Above, is just a normal "Arrow Function" returning some "JSX".
-You must remember, to "import" react at the top, so that it will compile your "JSX" into JavaScript to work.
+You must remember to "import" react at the top, so that it will compile your "JSX" into JavaScript to work.
 Also, remember to export your component.
 
 Then all you would have to do, is "import" your component in the "App.js" file, starting with a capitalized character on the import name.

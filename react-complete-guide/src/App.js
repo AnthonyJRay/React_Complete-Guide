@@ -13,24 +13,30 @@ import Person from './Person/Person';
 //     ]
 //   });
 
-class App extends 'Component' {
+class App extends Component {
+  state = {
+    persons: [
+      { name: 'Anthony', age: 30 },
+      { name: 'Debra', age: 29 },
+      { name: 'Vincent', age: 1 },
+      { name: 'Max', age: 26 },
+      { name: 'Manu', age: 21 }
+    ],
+    otherState: 'some other value'
+  }
 
-
-  setState(switchNameHandler = () => {
-    // console.log('Was Clicked!');
-    constructor(props) {
-      super(props);
-      this.state = {
-        persons: [
-          { name: 'Anthony', age: 50 },
-          { name: 'Debra', age: 25 },
-          { name: 'Vincent', age: 6 },
-          { name: 'Max', age: 100 },
-          { name: 'Manu', age: 23 }
-        ]
-      }
-    }
-  });
+  switchNameHandler = () => {
+    // console.log('Was clicked!');
+    this.setState({
+      persons: [
+        { name: 'Anthony', age: 50 },
+        { name: 'Debra', age: 25 },
+        { name: 'Vincent', age: 6 },
+        { name: 'Max', age: 100 },
+        { name: 'Manu', age: 23 }
+      ]
+    })
+  }
 
 
   render() {

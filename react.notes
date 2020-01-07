@@ -927,6 +927,40 @@ which might change the "state" from another "component" that doesn't have access
 
 -Adding Two Way Binding-
 
+you can run into problems when, Adding a "value" for example, on an "input" tag,
+without having an "onChange" or some way to change it.
+
+This is "binding" the "value" to a "property" without allowing yourself to react to changes.
+This will lock your input down, and you wouldn't be able to add anything into the "input" field,
+because we aren't allowing it to react to changes.
+
+
+-Adding Styling with Stylesheets-
+
+There are 2 ways to add styling to your component(s).
+
+-First-
+You can create a corresponding a CSS file in the same folder.
+
+e.g:
+
+-> src
+  -> Person 
+      Person.js
+      Person.css
+
+BUT, any CSS that is saved in the "Person.css" file,
+is NOT "scoped" to the "Person.js" file.
+
+It is "Global" css code.
+
+// Remember to import your css file into the main app.js
+// remember to use className to assign a JSX element a css class.
+
+-Working with inline Styles-
+
+
+
 
 
 

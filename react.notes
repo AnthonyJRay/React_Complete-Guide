@@ -916,6 +916,17 @@ as possible, and as few "Stateful" Components as possible.      // Smart Compone
 Yu were only want a couple "Stateful" Components.
 "Of course this depends on the size of your app."
 
+-Passing Method References Between Components-
+
+You can pass a "reference", of a "function" in the main "App" component,
+as a "property" to a "component" and use the function, from inside another component file.
+
+You can also pass "Methods" as "props". So that you can call a "Method",
+which might change the "state" from another "component" that doesn't have access to the state.
+
+
+-Adding Two Way Binding-
+
 
 
 

@@ -1080,6 +1080,68 @@ Keeps conditionals in one area(?).
 
 "Outputting Lists"
 
+In the current version of our code, we have our list of "Persons",
+hardcoded to render. This doesn't create true DYNAMIC content.
+
+A better method is using the .map() method on our array of "Persons" in our "State".
+
+<div>
+  {this.state.persons.map(person => {
+    return <Person 
+    name={person.name}
+    age={person.age} />
+  })}
+</div>
+
+This syntax allows us to take our "Persons" "State" and "map()" over it,
+returning something for each item in our array.
+
+In this case, we are returning a "<Person />" tag, to match our component.
+And adding in the same information as before,
+with the "name" property being set to the "person.name" and so on.
+
+our "Person" argument arrow function, can be named whatever you would like.
+Because we are returning an array of "Persons", "Person" is a fitting description for this example.
+
+In these few lines of code, we eliminated many lines of code, depending on the size of your application.
+
+This is a much cleaner, shorter, and easier to read and maintain way,
+to render your lists.
+
+Will re-add our Event Listeners in a minute..
+
+// Before 
+  <div>
+    <Person 
+    name={this.state.persons[0].name}
+    age={this.state.persons[0].age} />
+    <Person 
+    name={this.state.persons[1].name}
+    age={this.state.persons[1].age} />
+    <Person 
+    name={this.state.persons[2].name}
+    age={this.state.persons[2].age} />
+    <Person 
+    name={this.state.persons[3].name}
+    age={this.state.persons[3].age} />
+  </div>
+
+// After
+  <div>
+    {this.state.persons.map(person => {
+      return <Person 
+        name={person.name}
+        age={person.age} />
+    })}
+  </div>
+
+The above example illustrates the advantages and benefits of using the "map()" method.
+
+
+"Lists and State"
+
+
+
 
 
 

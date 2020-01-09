@@ -1136,12 +1136,72 @@ Will re-add our Event Listeners in a minute..
   </div>
 
 The above example illustrates the advantages and benefits of using the "map()" method.
-
+Mapping an Array, into an Array with JSX Elements.
+This is the common pattern for outputing lists in React.
 
 "Lists and State"
 
+Now let's add in a way to "Delete" a person for our array.
+
+deletePersonHandler = () => {
+  
+}
+
+Then, We can add a click prop to to component.
+
+click={this.deletePersonHandler}
+
+Remember, you can name "click" whatever you'd prefer.
+
+Now that our Handler is being referenced to our component,
+we can now access that prop from inside the component.
+
+Adding an onClick as an attribute to the paragraph tag,
+we can pass our handler using props.
+
+onClick={props.click}
+// Remember to add props into the arguements of your "Functional" Component"
+
+The "Map()" method, allows gives us access to another arguement for our array, "index".
+
+{this.state.persons.map((person, index) => {
+  return < Person 
+    click={this.deletePersonHandler}
+    name={person.name}
+    age={person.age} />
+})}
+
+// Remember, if you have more than one arguement, you have to wrap them in parenthesis ()
+
+Now you'll want to pass the "index" to the delete handler.
+
+click={() => this.deletePersonHandler(index)}
+
+By turning the delete handler into an anonymouse function, 
+you now open up the ability to pass arguements, in this case, "index".
+
+Continue by passing the "index" up to the "deletePersonHandler" naming it "personIndex".
+
+Inside your Handler, now grab all the persons into a variable.
+
+togglePersonHandler = (personIndex) => {
+  const persons = this.state.persons;
+  persons.splice(personIndex, 1);
+  this.setState({persons: persons})
+}
+
+Taking your "persons", adding a "splice()" method to the index,
+and removing 1 index.
+
+then setting the state to "persons:persons".
+
+This approach however has a flaw. When you click on the paragraph tags,
+the component does get removed.
+
+However, we are unable to get the list back without refreshing the page.
 
 
+" Updating State Immutably"
 
 
 

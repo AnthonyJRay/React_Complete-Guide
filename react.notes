@@ -1050,6 +1050,35 @@ If "doesShow" is false, it will set "showPersons" to "true".
 If "doesShow" is "true", it will set "showPersons" to "false".
 
 
+"Handling Dynamic Content, the JavaScript way"
+
+If you remember, Everything we are doing in React, is just JavaScript.
+
+There is a way to use a traditional if else statement.
+
+Inside the "Render" method, you can write plain JavaScript code
+
+let persons = null; // Initialize persons to null
+
+if ( this.state.showPersons ) { // If persons is true
+  Some JSX code here            // Render this JSX
+}
+
+Since there will be a state change, when the button is clicked,
+React will re-render the DOM, and update the State.
+
+By initializing persons to "null", it will display nothing,
+because it will only render the JSX if "true".
+It becomes "true" when the button is clicked.
+Because of the method we passed into the onClick attribute.
+
+Writing your conditionals this way helps to keep your code CLEAN.
+Keeping the JSX structure the same, and "outsourcing" specific conditionals.
+Keeps conditionals in one area(?).
+
+
+
+"Outputting Lists"
 
 
 

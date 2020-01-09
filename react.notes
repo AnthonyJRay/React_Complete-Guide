@@ -779,7 +779,7 @@ The "setState" method, comes from the React library,
 through extending the class component to "Component"
 
 -------------------------------------------
-switchNameHandler = ({}) => {
+switchNameHandler = () => {
   this.setState()
 }
 -------------------------------------------
@@ -1002,6 +1002,52 @@ You use "inline" styling, and then the CSS is "scoped" to each JavaScript compon
 But there are some "restrictions".
 
 
+" Rendering Lists and Conditional Statements"
+
+You can wrap content/element in a single pair of curly braces ( {} ),
+and turn it into a JavaScript Expression.
+
+Inside there, you can start some Conditional Statements.
+You also have access to any JavaScript property, and turn it into a Ternary Expression.
+You can "NOT" use a traditional "If else" statement, it will now work.
+Instead you must use the "ternary" syntax.
+
+{ ifThisMethodReturnsTrue ?
+<div>
+  <HiddenComponent />
+  <HiddenComponent />
+  <HiddenComponent />
+</div> : null
+}
+
+The above example is a quick demonstration of how you can use the "Ternary Operator".
+"ifThisMethodReturnsTrue" Then render the follow code.
+"Else" it is "null" and will render nothing.
+// There is a better way to add Conditionals, read down.
+
+Remember, to add a property in your "State" that would initialize "False".
+
+eg. "showComponent: false"
+
+Then create a new method, for instance, "ifThisMethodReturnsTrue".
+
+Ternary Operator
+If this is true ? Return This Code : or Else do this
+
+
+Method Example
+
+togglePersonsHandler = () => {
+  const doesShow = this.state.showPersons
+  this.setState({ showPersons: !doesShow })
+}
+
+The way that this method works is,
+Once executed, it will set the "doesShow" variable to the current state. e.g "showPersons".
+Then, it sets showPersons in the state, not equal to doesShow.
+
+If "doesShow" is false, it will set "showPersons" to "true".
+If "doesShow" is "true", it will set "showPersons" to "false".
 
 
 

@@ -1201,7 +1201,37 @@ the component does get removed.
 However, we are unable to get the list back without refreshing the page.
 
 
-" Updating State Immutably"
+"Updating State Immutably"
+
+The flaw in our above approach of removing a person by index from the state,
+is that, in JavaScript, "Objects and Array" are "Reference" types.
+
+So when you are getting "persons" from the "State", you are actually getting a "Pointer",
+to the original "Persons" object or original state, managed by React.
+
+If you then "Splice()" it, you already mutated the original data.
+While it does work without throwing an error, it is "NOT" the correct way to do this.
+This way can lead to unpredictable apps, and a definate bad practice.
+
+
+A good practice, would be to make a copy of your persons array, or state.
+A simple way to do this, is by calling the "slice()" method.
+"slice()" without arguements simply copies the array and returns a new one.
+
+deletePersonHandler = () => {
+  const persons = this.state.persons.slice();
+  persons.splice(personIndex, 1);
+  this.setState({persons:persons});
+}
+
+Now, by adding in a "splice()" method, you are no longer manipulating the original state,
+but manipulating a COPY of the current state. Then, with setState, "merging" the two States.
+
+This way allows you to manipulate or change state, without ever changing the ORIGINAL state.
+
+An even better way to achieve this is by using the "Spread Operator" (...).
+
+"
 
 
 

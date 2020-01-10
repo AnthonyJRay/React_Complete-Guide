@@ -1282,6 +1282,64 @@ If you want to render a list, use the map() method.
 Should add a key prop.
 
 
+" Assignment 2 "
+
+"Step 1": Create a new Input field, inside the Root/App Component,
+with a change listener, that outputs the length of the entered text below it.
+
+Adding an Event Listener, Using the User Input, Rendering it,
+and you probably need State.
+
+"Step 2": Create a new component, e.g. "Validation Component",
+which receives the text length, as a prop.
+
+e.g. The length of the text the user enters. You should probably,
+store this length in the state aswell. You can get it with the .length() property,
+executed on the entered text.
+
+// JavaScript Strings are basically Arrays.
+// You can use Array Methods on them.
+
+"Step 3": Work inside the "Validation Component", and not only store the "length" property,
+but EITHER output "Text too short" or "Text long enough".
+Choose any cutoff points you'd like. e.g. Minimum 5, Maximum 12.
+You won't need to manage the state in the validation component to achieve this.
+
+Get the text length as a prop,
+then conditionally render one of the two texts,
+depending on the length.
+Inside a paragraph, inside the validatio component.
+
+"Step 4": Create a new component, the "char" component.
+Style it as an inline box. Some example styling you could use would be,
+display: 'inline block;
+padding: '16px';
+textAlign: 'center';
+margin: '16px';
+border: '1px solid black';
+backgroundColor: 'whatever you want';
+
+Then, render a list of these "char" components,
+it should be 1 "char" component, per character, the user entered.
+
+Then pass this character, as a prop. 
+So basically, display the text, as a collection of boxes, close enough
+Make sure to render this list of char components, in the app component.
+Not in the validation component.
+
+
+You can convert a string into a real array of text,
+you can call the split() method, and pass an empty string.
+You will split it into an array of characters. 
+You can then call map() on that.
+
+You can then "splice()" something, on the converted array,
+and then "join()", with an empty string as an input, 
+you can then to turn it back into text.
+
+"Step 5":
+"Step 6":
+
 
 
 

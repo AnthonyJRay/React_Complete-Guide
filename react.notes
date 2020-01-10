@@ -1231,7 +1231,55 @@ This way allows you to manipulate or change state, without ever changing the ORI
 
 An even better way to achieve this is by using the "Spread Operator" (...).
 
-"
+"splice()" only works on arrays, whereas the spread operator works on everything iterable(?).
+
+
+"Lists and Keys"
+A "key prop" is an important "property" we should add, when rendering lists of data.
+
+This is why React gives us a warning to do so.
+
+The "key prop" is a default property, React expects to find,
+On an element, no matter if it's a custom Component or a default HTML element,
+Once you render through a list.
+
+e.g. By "Mapping" an Array into JSX. // this.state.persons.map()
+
+The "key" property also helps React update, efficiently.
+
+React has a "Virtual DOM", where it compares what it would render now,
+if it were to call the render method now, to the previous DOM.
+
+It basically does a comparison of the Future to the Past.
+
+For "Lists" it needs to find out which elements changed.
+
+For lists, it would just re-render the whole list.
+That is why the "Key" prop is so important.
+
+It allows React to keep track of individual elements in a list,
+so that is has a clear property, that it can compare between the two elements.
+To find out which elements changed and which didn't.
+That way, React will only re-render elements that DID change,
+and not the entire list.
+
+Generally, your data should already have it's own unique ID,
+Typically generated as a unique ID from the database.
+
+If not, give each element it's own unique id.
+Each element should ALWAYS have it's own ID.
+
+
+"Wrap Up"
+
+We should output content conditionally, by using JavaScript.
+The same for Lists, everything is JavaScript.
+You can do it with Ternary Expressions,
+but a better way is to create variables,
+which you output in your JSX, and use if statements to render content conditionally.
+
+If you want to render a list, use the map() method.
+Should add a key prop.
 
 
 

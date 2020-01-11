@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
 import Person from './Person/Person';
+import Validator from './Validation/Validation';
 
 
 //  STATE
@@ -14,23 +15,25 @@ class App extends Component {
       { id: '4', name: 'Manu', age: 21 }
     ],
     otherState: 'some other value',
-    showPersons: false
+    showPersons: false,
+    inputState: "",
+    inputLength: ""
   }
 
 
   //  SWITCH NAME
-  switchNameHandler = (newName) => {
-    console.log('Was clicked!');
-    this.setState({
-      persons: [
-        { name: newName, age: 50 },
-        { name: 'Debra', age: 25 },
-        { name: 'Vincent', age: 6 },
-        { name: 'Max', age: 100 },
-        { name: 'Manu', age: 23 }
-      ]
-    })
-  }
+  // switchNameHandler = (newName) => {
+  //   console.log('Was clicked!');
+  //   this.setState({
+  //     persons: [
+  //       { name: newName, age: 50 },
+  //       { name: 'Debra', age: 25 },
+  //       { name: 'Vincent', age: 6 },
+  //       { name: 'Max', age: 100 },
+  //       { name: 'Manu', age: 23 }
+  //     ]
+  //   })
+  // }
 
 
   //  NAME CHANGE
@@ -65,9 +68,47 @@ class App extends Component {
     this.setState({ showPersons: !doesShow });
   }
 
+  // inputChangeHandler
+  inputChangeHandler = (event) => {
+    this.setState(
+      {
+        inputState: event.target.value,
+        inputLength: this.state.inputState.length
+      })
+  }
+
+  charBoxStyle = {
+    display: 'inline-block',
+    padding: '16px',
+    textAlign: 'center',
+    margin: '16px',
+    border: '1px solid black',
+    backgroundColor: 'lightblue'
+  }
+
+  // inputBox
+  charBox = () => {
+    const boxArr = this.state.inputLength.map(() => {
+      return <charBox
+        style={this.charBoxStyle}
+      />
+    })
+  }
+
+
+
 
   //  RENDER
   render() {
+    const charBoxStyle = {
+      display: 'inline-block',
+      padding: '16px',
+      textAlign: 'center',
+      margin: '16px',
+      border: '1px solid black',
+      backgroundColor: 'lightblue'
+    }
+
     const style = {
       backgroundColor: 'white',
       font: 'inherit',
@@ -96,6 +137,15 @@ class App extends Component {
       );
     }
 
+    char = (
+      <div>
+        {this.state.inputLength.map(() => {
+          return <charBox
+            style={charBoxStyle}
+          />
+        })}
+      </div>
+    )
 
     // JSX / COMPONENTS
 
@@ -107,6 +157,17 @@ class App extends Component {
           style={style}
           onClick={this.togglePersonsHandler}>Toggle Persons</button>
         {persons}
+        <hr />
+        <input type="text"
+          onChange={this.inputChangeHandler}
+          value={this.props.inputState}
+        />
+        <p>
+          {this.state.inputState}
+        </p>
+        <Validator
+          inputLength={this.state.inputState.length} />
+        {char}
       </div>
     );
   }

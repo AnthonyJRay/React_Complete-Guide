@@ -68,7 +68,7 @@ class App extends Component {
     this.setState({ showPersons: !doesShow });
   }
 
-
+  // Character Styles
   charBoxStyle = {
     display: 'inline-block',
     padding: '16px',
@@ -78,11 +78,21 @@ class App extends Component {
     backgroundColor: 'lightblue'
   }
 
+  // Delete Char Handler
+
+  deleteCharHandler = () => {
+    const charIndex = this.state.stringState;
+    charIndex.splice(charIndex, 1);
+    this.setState({ charIndex: charIndex })
+  }
+
   // inputChangeHandler
   inputChangeHandler = (event) => {
     const inputState = event.target.value;
     const inputArr = inputState.split("").map((char) => {
-      return <span style={this.charBoxStyle}> {char} </span>
+      return <span
+        style={this.charBoxStyle}
+        onClick={this.deleteCharHandler}> {char} </span>
     });
     this.setState(
       {

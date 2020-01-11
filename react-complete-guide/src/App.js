@@ -16,7 +16,7 @@ class App extends Component {
     ],
     otherState: 'some other value',
     showPersons: false,
-    inputState: "",
+    stringState: "",
     inputLength: ""
   }
 
@@ -68,14 +68,6 @@ class App extends Component {
     this.setState({ showPersons: !doesShow });
   }
 
-  // inputChangeHandler
-  inputChangeHandler = (event) => {
-    this.setState(
-      {
-        inputState: event.target.value,
-        inputLength: this.state.inputState.length
-      })
-  }
 
   charBoxStyle = {
     display: 'inline-block',
@@ -86,28 +78,22 @@ class App extends Component {
     backgroundColor: 'lightblue'
   }
 
-  // inputBox
-  charBox = () => {
-    const boxArr = this.state.inputLength.map(() => {
-      return <charBox
-        style={this.charBoxStyle}
-      />
-    })
+  // inputChangeHandler
+  inputChangeHandler = (event) => {
+    const inputState = event.target.value;
+    const inputArr = inputState.split("").map((char) => {
+      return <span style={this.charBoxStyle}> {char} </span>
+    });
+    this.setState(
+      {
+        stringState: inputArr,
+        inputLength: inputArr.length
+      })
   }
-
-
 
 
   //  RENDER
   render() {
-    const charBoxStyle = {
-      display: 'inline-block',
-      padding: '16px',
-      textAlign: 'center',
-      margin: '16px',
-      border: '1px solid black',
-      backgroundColor: 'lightblue'
-    }
 
     const style = {
       backgroundColor: 'white',
@@ -137,16 +123,6 @@ class App extends Component {
       );
     }
 
-    char = (
-      <div>
-        {this.state.inputLength.map(() => {
-          return <charBox
-            style={charBoxStyle}
-          />
-        })}
-      </div>
-    )
-
     // JSX / COMPONENTS
 
     return (
@@ -160,14 +136,13 @@ class App extends Component {
         <hr />
         <input type="text"
           onChange={this.inputChangeHandler}
-          value={this.props.inputState}
+          value={this.props.stringState}
         />
-        <p>
-          {this.state.inputState}
-        </p>
+        <div>
+          {this.state.stringState}
+        </div>
         <Validator
-          inputLength={this.state.inputState.length} />
-        {char}
+          inputLength={this.state.stringState.length} />
       </div>
     );
   }

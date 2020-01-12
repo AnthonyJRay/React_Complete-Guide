@@ -1572,8 +1572,90 @@ const style = {
 
 
   "Introducing Styled Components"
-  
 
+  Another more popular library other than "Radium",
+  is "Styled Components".
+
+  What is "Styled Components"?
+
+  This library is all about, styling components,
+  and making that very simple.
+
+//  styled-components.com
+
+Install: // npm install -save styled-components
+import styled from 'styled-components'
+
+Example:
+const Button = styled.button``
+
+The two backticks are actually JavaScript. It is called,
+"Tagged Templates".
+
+"Tagged Templates" have nothing to do with "React" specifically,
+but it is available in Vanilla JavaScript.
+
+The way the above syntax works is,
+
+It is actually a Function call. 
+"Button" would be the Function, or Method,
+on the styled object.
+
+Instead of parantheses, which you would typically use to insert function arguments,
+you use 2 backticks "``".
+
+The backticks receive text as "arguments". Which is then passed into the "Button" method,
+in a special way.
+
+Inside these backticks, is where you'll write your styles.
+
+Example: 
+
+styled.div`
+  margin: 10px;
+  padding: 10px;
+  border: 1px solid black;
+`
+
+Inside the backticks, you can write just normal CSS properties,
+but you must create components for your elements. Otherwise,
+your elements will now work. The code will break.
+
+e.g.
+
+styled.div`
+  some Styles
+`
+
+</div>
+
+This, does not work, obviously. 
+The solution to this is creating a new component, for this Div,
+and then wrapping your elements with the new div component.
+
+const StyledDiv = styled.div`
+    // some styles here
+`
+Now you can use it to wrap your elements like so,
+
+<StyledDiv>
+// JSX elements
+</StyledDiv>
+
+
+"IMPORTANT"
+
+EVERY  method provided by the "Styled" object, returns a React Component.
+
+Above, we are "not" creating a React Component where we get props,
+and return some JSX, because we are already returning a component.
+
+So instead of creating a function, or functional component,
+we just store the result of the "styled.div``" method call,
+inside our StyledDiv variable.
+
+
+"STYLED COMPONENTS CONT.."
 
 
 

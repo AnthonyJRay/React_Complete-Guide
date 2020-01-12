@@ -1434,6 +1434,67 @@ export default char;
 
 Styling React Components 
 
+Look at how you can dynamically adjust styles, or class names.
+Also learn how to work around the restrictions of either,
+  - Using Inline Styles (Scoped Styles)
+      Limitations: Unable to use media queries or pseudo selectors.
+
+  - Using CSS files, and having global styles.
+
+
+"Setting Styles Dynamically"
+
+It is ALL JavaScript, you can manipulate the style object with anything you want,
+Then when you bind it to a property, it will apply it.
+No matter HOW you edited it.
+
+"Setting Class Names Dynamically"
+
+One way you can dynamically style your elements is,
+
+Create some new styles and classes in the global App.css stylesheet.
+e.g.
+
+.red {
+  color: red;
+}
+
+.bold {
+  font-weight: bold;
+}
+
+
+You can then, create a new variable, assigned to an array,
+that holds your new class names.
+
+let classes = ['red', 'bold'].join(' ');
+
+This is one way you can grab multiple class names and assign them.
+Using the join() method on the array of class names,
+it will join the 2 together, seperating them by a space.
+// bold red
+
+To add some dynamics to our styles,
+we could write our classes in an if statement,
+and push() a specific className into the array depending on the conditions.
+
+Then, adding the array, with the join() method to the className of an element.
+
+---------------------------------------------
+
+const classes = [];
+if (this.state.persons.length <= 2) {
+  classes.push('red'); // classes = ['red']
+}
+if (this.state.persons.length <= 1) {
+  classes.push('bold'); // classes = ['red', 'bold']
+}
+
+
+<p className={classes.join(' ')}> Dynamic Styles! </p>
+
+-----------------------------------------------
+
 
 
 

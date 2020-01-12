@@ -1655,7 +1655,40 @@ we just store the result of the "styled.div``" method call,
 inside our StyledDiv variable.
 
 
-"STYLED COMPONENTS CONT.."
+"STYLED COMPONENTS CONT.. and DYNAMIC STYLES"
+
+  You can create your Styled Components in seperate files,
+  and use them accross your app.
+
+Adding Dynamic styles with Styled Components is super easy!
+
+On our button, we were changing the background colors,
+based on if showPersons is true or false, expanded or collapsed.
+
+With StyledComponents, simply add a new property to your component.
+
+e.g. alt={this.state.showPersons}
+
+With this new alt prop, you can inject into your styled.button`` component.
+
+e.g.
+
+  const StyledButton = styled.button`
+  background-color: ${props => props.alt ? 'red' : 'green'};`
+
+  Using the dollar sign syntax, ${} we can inject a function,
+  with a Ternary Expression, and add our property values, 
+  based on if the expression is true or false.
+
+  "${}" is a JavaScript syntax. It is NOT React.
+
+
+  " WORKING WITH CSS MODULES "
+
+  
+
+
+
 
 
 

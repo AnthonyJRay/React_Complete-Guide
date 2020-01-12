@@ -1685,8 +1685,18 @@ e.g.
 
   " WORKING WITH CSS MODULES "
 
-  
+  Styled Components, are a nice way to mix your CSS with JavaScript,
+and getting components(elements) with possibly dynamic styles added to them.
 
+A lot of people like Styled Components, but it's also nice to have your CSS,
+"scoped" to a certain style, or a certain component, and still lives inside of CSS files.
+Some are not fans of having CSS inside of your JavaScript, as it can "bloat" your JavaScript files,
+and make them messy and hard to read.
+
+In order for CSS Modules to work, you need to tweak your build configuration a little bit.
+
+// This setup process pertains to react-scripts ver 1!!!!!
+// Make sure to check your version or instruction accuracy!
 
 
 

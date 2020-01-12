@@ -1698,8 +1698,63 @@ In order for CSS Modules to work, you need to tweak your build configuration a l
 // This setup process pertains to react-scripts ver 1!!!!!
 // Make sure to check your version or instruction accuracy!
 
+Make sure you have commited all changes.
+Stop the development server
+run "npm run ejectt"
+
+This will give you a new "scripts" and "config" folder,
+which houses of the configuration files for your React application.
+
+Inside the "config" folder you will find,
+"webpack.config.dev.js"
+"webpack.config.prod.js"
+
+These are all the packages used under the hood by "create-react-app",
+which is what gives you the development server, build your app, and bundle it together.
+
+Inside of the config.dev file, which houses your webpack config,
+scroll down to the "test:/\.css$/." and there you will find an "options"
+
+Under the options, add the following:
+
+   modules: true,
+   localIdentName: '[name]__[local]__[hash:base64:5]'
 
 
+   What does this all mean?
+
+   "modules: true" enables the CSS Modules feature.
+   "localIdentname" is used to dynamically generate CSS Class names.
+
+   You will also need to add the above code to the "prod" file.
+
+   Now run npm start
+
+Now you can import your App.css file a bit differently.
+
+import classes from './App.ss'
+
+With this, we can start to style elements in a different way.
+
+for example,
+
+<button className={classes.Button} </button>
+
+The .Button class, has how defined styles, in our App.js file.
+// Becareful to rename any existing names, that share the "classes" name.
+
+All the the classes, defined in a CSS file,
+must now include "classes." are the beginning of each classname being assigned.
+
+What is happening is, the React is going to look at the CSS classes,
+and generate unique classnames and map them to our existing class names under the hood.
+
+The new class names are then "imported" as a "property" of the imported "object"
+In this case, the "classes" object.
+
+Now when you add the same class name to element,
+you don't get any clashes with class names because,
+a randomly generated unique class name is actually being assigned to each individual element.
 
 
 

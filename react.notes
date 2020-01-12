@@ -1496,7 +1496,83 @@ if (this.state.persons.length <= 1) {
 -----------------------------------------------
 
 
+"Adding and using Radium"
 
+Radium allows us to use/add Media Queries and Pseudo Selectors,
+to our Inline Styles.
+
+npm install --save radium
+
+To use Radium, simply import it into the file you'll be using it with.
+Then, add it to your export statement at the bottom of the file.
+
+export default Radium(App);
+
+This is called a "Higher Order Component".
+Now you can use "Radium" on both your "Class" components,
+aswell as your "Functional" components.
+
+If your seperate "Functional" component files,
+you can add the same "import" and "export" statements,
+to gain access to "Radium" features.
+
+const style = {
+  backgroundColor: 'green',
+  color: 'white',
+  font: 'inherit',
+  border: '1px solid blue',
+  padding: '8px',
+  cursor: 'pointer',
+  ':hover': {
+    backgroundColor: 'lightgreen',
+    color: 'black'
+  }
+};
+
+
+You can add in your Radium elements, just like normal properties.
+a "Pseudo" element, like "Hover" does however,
+need to exist between a pair of quotations.
+As a "Colon" (:), is not a proper JavaScript element.
+
+You also can add these styles inside of your components.
+
+style[':hover'] = {
+  backgroundColor: 'salmon',
+  color: 'black'
+}
+
+Pseudo selectors not only need to be wrapped in quotations,
+but also put inside a pair of square brackets like an array.
+Prefaced by a "style" property.
+
+"Radium" isn't only good for Pseudo Selectors, 
+it allows allows you to use "Media Queries".
+
+
+"MEDIA QUERIES"
+
+const style = {
+    '@media (min-width: 500px)': {
+      width: '450px'
+    }
+  }
+
+  <div style={style}> </div>
+
+
+  In order for "Media Queries", "Keyframes", etc.
+  To work properly, you MUST wrap your entire application,
+  in a <StyleRoot> </StyleRoot> component.
+
+  Remember to import StyleRoot with your Radium.
+
+  import Radium, { StyleRoot } from 'radium;
+
+
+
+  "Introducing Styled Components"
+  
 
 
 

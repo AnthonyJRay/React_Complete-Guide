@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import './App.css';
+import Radium, { StyleRoot } from 'radium';
 import Person from './Person/Person';
 import Validator from './Validation/Validation';
 
@@ -111,7 +112,11 @@ class App extends Component {
       font: 'inherit',
       border: '1px solid blue',
       padding: '8px',
-      cursor: 'pointer'
+      cursor: 'pointer',
+      ':hover': {
+        backgroundColor: 'lightgreen',
+        color: 'black'
+      }
     };
 
     const inputStyle = {
@@ -138,6 +143,10 @@ class App extends Component {
       );
 
       style.backgroundColor = 'red';
+      style[':hover'] = {
+        backgroundColor: 'salmon',
+        color: 'black'
+      }
     }
 
     const classes = []
@@ -151,26 +160,28 @@ class App extends Component {
     // JSX / COMPONENTS
 
     return (
-      <div className="App">
-        <h1>Hi, I'm a React App.</h1>
-        <p className={classes.join(' ')}> This is really working!</p>
-        <button
-          style={style}
-          onClick={this.togglePersonsHandler}>Toggle Persons</button>
-        {persons}
-        <hr />
-        <input type="text"
-          onChange={this.inputChangeHandler}
-          value={this.props.stringState}
-          style={inputStyle}
-        />
-        <div>
-          {this.state.stringState}
+      <StyleRoot>
+        <div className="App">
+          <h1>Hi, I'm a React App.</h1>
+          <p className={classes.join(' ')}> This is really working!</p>
+          <button
+            style={style}
+            onClick={this.togglePersonsHandler}>Toggle Persons</button>
+          {persons}
+          <hr />
+          <input type="text"
+            onChange={this.inputChangeHandler}
+            value={this.props.stringState}
+            style={inputStyle}
+          />
+          <div>
+            {this.state.stringState}
+          </div>
+          <Validator
+            inputLength={this.state.stringState.length} />
         </div>
-        <Validator
-          inputLength={this.state.stringState.length} />
-      </div>
+      </StyleRoot>
     );
   }
 }
-export default App;
+export default Radium(App);

@@ -1833,6 +1833,44 @@ Chrome Devtool Debugging: https://developers.google.com/web/tools/chrome-devtool
 
 A Better Project Structure -
 
+Maybe add a "components" folder to store all of your components.
+A "containers" folder to store your App.js and testing files.
+An "assets" folder to store any images you may use.
+
+"Stateless vs Stateful"
+- We are referring to "Stateful" components when we are managing State in them.
+- A functional component that manages it's own state with useState() is ALSO a Stateful component.
+
+"Stateless" or "Dumb" Components, have always been functional components.
+With the release of React 16+, functional components can also manage State with "React Hooks".
+
+Although, it is still a best practice to follow the conventional practice,
+of using as few "Stateful" components as possible, and as many "Stateless" components as possible.
+
+
+"CLASS-BASED vs FUNCTIONAL COMPONENTS"
+
+"Clas-based Components"
+- class XY extends Component
+   [√] Access to State  
+   [√] Lifecycle Hooks
+-Access State and Props via "this"
+  // this.state.XY / this.props.XY
+Use Class-based Components if you need to manage State,
+or access to Lifecycle Hook and you don't want to use React Hooks!
+
+"Functional Components"
+- Functions that take props, and return some JSX.
+   [√] Access to State (useState())
+   [x] Lifecycle Hooks
+- Access Props via "props"
+  // props.XY
+Use Functional Components in all other cases.
+
+
+"COMPONENT LIFECYCLE"
+
+
 
 
 

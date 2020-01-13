@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import classes from './App.css';
-import Person from './Person/Person';
-import Validator from './Validation/Validation';
+import Person from '../components/Persons/Person/Person';
+
 
 //  STATE
 class App extends Component {
@@ -14,9 +14,7 @@ class App extends Component {
       { id: '4', name: 'Manu', age: 21 }
     ],
     otherState: 'some other value',
-    showPersons: false,
-    stringState: "",
-    inputLength: ""
+    showPersons: false
   }
 
 
@@ -38,7 +36,6 @@ class App extends Component {
     this.setState({ persons: persons })
   }
 
-
   //  DELETE PERSON
   deletePersonHandler = (personIndex) => {
     const persons = this.state.persons;
@@ -52,47 +49,8 @@ class App extends Component {
     this.setState({ showPersons: !doesShow });
   }
 
-  // Character Styles
-  charBoxStyle = {
-    display: 'inline-block',
-    padding: '16px',
-    textAlign: 'center',
-    margin: '16px',
-    border: '1px solid black',
-    backgroundColor: 'lightblue'
-  }
-
-  // Delete Char Handler
-
-  deleteCharHandler = () => {
-    const charIndex = this.state.stringState;
-    charIndex.splice(charIndex, 1);
-    this.setState({ charIndex: charIndex })
-  }
-
-  // inputChangeHandler
-  inputChangeHandler = (event) => {
-    const inputState = event.target.value;
-    const inputArr = inputState.split("").map((char) => {
-      return <span
-        style={this.charBoxStyle}
-        onClick={this.deleteCharHandler}> {char} </span>
-    });
-    this.setState(
-      {
-        stringState: inputArr,
-        inputLength: inputArr.length
-      })
-  }
-
-
   //  RENDER
   render() {
-
-    const inputStyle = {
-      marginTop: '350px'
-    }
-
 
     // CONDITIONALS
     let persons = null;
@@ -135,17 +93,9 @@ class App extends Component {
           Toggle Persons
           </button>
         {persons}
-        <hr />
-        <input type="text"
-          onChange={this.inputChangeHandler}
-          value={this.props.stringState}
-          style={inputStyle}
-        />
         <div>
           {this.state.stringState}
         </div>
-        <Validator
-          inputLength={this.state.stringState.length} />
       </div>
     );
   }

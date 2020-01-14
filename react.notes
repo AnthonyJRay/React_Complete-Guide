@@ -1870,6 +1870,178 @@ Use Functional Components in all other cases.
 
 "COMPONENT LIFECYCLE"
 
+Is only available in "Class-based" Components.
+"Functional" Components have an "equivalent",
+but generally it's only available in "Class-based".
+
+"Class-based Lifecycle"
+
+constructor()
+getDerivedStateFromProps()
+getSnapshotBeforeUpdate()
+componentDidCatch()
+componentWillUnmount()
+shouldComponentUpdate()
+componentDidUpdate()
+componentDidMount()
+render()
+
+These methods, which can be added to any class-based component,
+and React will execute them for us.
+
+They will run at different points of time, and we can do different things with them.
+// e.g. Fetch data from Web, or do some cleanup work before a component is removed.
+
+// Side-Effects: Http requests etc.
+"Component Lifecycle - Creation"
+  When a component is created, first the "constructor(props)" executes.
+  The constructor will receive the props of this component,
+  and you have to call "super(props)" in the constructor.
+
+  The constructor can be used for initialization,
+  for example, setting an initial State.
+
+  After the "constructor", getDerivedStateFromProps(props, state) runs.
+  With this, whenever your "props" change, for your class-based component,
+  you can sync your State to them. // Very rare situation.
+
+  After those 2 hooks, the "render()" method executes. 
+  This is just to prepare and structure your JSX code.
+
+  Then "Render Child Components".
+
+  Then "componentDidMount()" will run. This is where you do want to run side-effects.
+  This is where you can and generally do run your HTTP requests, etc.
+  Although, in this hook, DO NOT UPDATE STATE in it synchronously
+
+"Component Creation Lifecycle in Practice"
+
+  class App extends Component {
+    constructor(props) {
+      super(props);
+      this.state = {
+
+      }
+    }
+  }
+
+  This is how you would traditionally set the State of your application.
+
+  The more modern approach is just initializing set and ommiting the constructor function.
+
+  state = {
+
+  }
+
+  Using State this way, React will automatically add the constructor function behind the scenes.
+  Constructor good to know incase working on a project/codebase that does not support the newer syntax.
+  //  Remember, you must have super(props) in your constructor function.
+  // It's important to note, not to try and set, or initialize your state,
+  // using the setState() method. setState() merges a State with existing state.
+  // It will not initialize state.
+
+  After the constructor runs, getDerivedStateFromProps runs.
+  You must add "static" infront of getDerivedStateFromProps.
+
+  Once that code is finished, then the render() method gets executed.
+
+  Once the render() method has finished, and all of the components have ran,
+  and been rendered, along with all of their properties,
+  the next thing to run is componentDidMount() will run.
+
+  This is where you can/should run/include HTTP/AJAX requests.
+
+
+
+" Component Update Lifecycle (for props Changes) "
+  Just as we have a Lifecycle for Component Creation,
+  we also have one for Updating components.
+  
+  So if/when props or state does change,
+  which are the two triggers for a component to be,
+  re-evaluated by React, then we go through the "Update" Lifecycle.
+
+  This lifecycle starts with, "getDerivedStateFromProps(props, state)"
+  It is not a method that you will use often.
+  You would use it to initialize the state of a component,
+  that updates, based on the props you are getting. (updated props).
+  It could be for example, a form control, that gets external properties, and then you internally want to handle user input,
+  but initialize or update your state based on outside changes.
+
+  You should rarely need to use this hook, and if you do, there is a more elegant way to do these things.
+
+
+  After that, "shouldComponentUpdate" runs.
+  This method, allows you to "cancel" the updating process.
+  Allows React to decide to continue updating or re-rendering a component.
+  Why would you do that? Performance Optimization.
+  This should be use "CAREFULLY" as you can break your components,
+  if you block an update from happening incorrectly.
+  It's still a very powerful method as it allows you to block "unnecessary" updates.
+
+  After that the render() method is called, and React then goes through JSX code,
+  evaluates it, then constructs it's virtual DOM, and see's if it needs to update the "real" DOM.
+  //This is where you prepare and structure your JSX code.
+  
+  Next it will Update Child Component Props. Going through, evaluating,
+  and seeing if a child component has also received new props and adds them to the virtual DOM.
+
+
+  Next is "getSnapshotBeforeUpdate", this method takes the previous props, and previous state,
+  as input, then returns a snapshot object which you can freely configure.
+  This is a niche lifecycle hook and you wouldn't use too much.
+  You would use it for last minute DOM operations,
+  for example, getting the current scroll position of the user.
+
+  Lastly, "componentDidUpdate()" is called.
+  A method that signals, that you are now done with updating.
+  Here you can cause "side-effects" or make HTTP requests.
+  You'll have to becareful, not to make an infinite loop in this method.
+  e.g. Receiving a request response, Updating, over and over.
+  // Typical problem  you may face.
+
+" Component Update Lifecycle (for state Changes) "
+  In the "Persons.js" file, we converted our functional components,
+  to class-based components.
+
+  Inside our component, we run the Lifecycle methods,
+
+  "getDerivedStateFromProps" - Which should return State
+  "shouldComponentUpdate(nextProps, nextState)" - Should have a condition, that returns true or false, depending on if there are changes.
+  "getSnapshotBeforeUpdate(prevProps, prevState)" - Will get a Snapshot of the previous State, which can be used after didUpdate.
+  "componentDidUpdate" - Will run if changes were made and updated.
+
+"componentDidMount" and "componentDidUpdate" are the most important hooks,
+because generally you'll be doing some sort of data fetching.
+
+"shouldComponentUpdate" can be used for performance improvement.
+
+
+" Using useEffect() in Functional Components "
+  
+
+
+" Controlling useEffect() behavior "
+" Cleaning up with Lifecycle Hooks and useEffect() "
+" Cleanup Work with useEffect() - Extended "
+" Using shouldComponentUpdate for Optimization "
+" Optimizing Functional Components with React.memo() "
+" When should you optimize? "
+" PureComponents instead of shouldComponentUpdate"
+" How React updates the DOM"
+" Rendering Adjacent JSX Elements "
+" Using React.Fragment "
+" Higher Order Components (HOC) - Introduction "
+" Another form of HOCs "
+" Passing unknown Props "
+" Setting State correctly "
+" Using PropTypes "
+" Using Refs "
+" Refs with React Hooks "
+" Understanding Prop Chain problems "
+" Using the Context API "
+" contextType & useContext() "
+" Wrap Up - Notes "
 
 
 

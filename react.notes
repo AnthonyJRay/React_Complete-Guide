@@ -2068,12 +2068,22 @@ because generally you'll be doing some sort of data fetching.
 
 
 " Cleaning up with Lifecycle Hooks and useEffect() "
+
+
+
 " Cleanup Work with useEffect() - Extended "
 " Using shouldComponentUpdate for Optimization "
 " Optimizing Functional Components with React.memo() "
 " When should you optimize? "
 " PureComponents instead of shouldComponentUpdate"
 " How React updates the DOM"
+    The "render()" method being called, does not render it to the DOM.
+    "render()" is more of a suggestion, of what the HTML should look like.
+    "render()" can be called, and lead to the same result, as already displayed.
+    This is part of the reason, why you use "shouldComponentUpdate". To prevent, unnecessary render() calls.
+       
+
+
 " Rendering Adjacent JSX Elements "
 " Using React.Fragment "
 " Higher Order Components (HOC) - Introduction "

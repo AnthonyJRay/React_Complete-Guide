@@ -2018,10 +2018,55 @@ because generally you'll be doing some sort of data fetching.
 
 
 " Using useEffect() in Functional Components "
-  
+  useEffect() is the second most important hook you can use,
+  outside of setState.
+
+  useEffect() combines all of the functionality, of all the class-based hooks,
+  in one hook.
+
+  useEffect() is not actually a Lifecycle hook,
+  it is a React hook, which you can use inside of your functional components.
+
+  useEffect, takes a function, that will run for every render cycle.
+
+
+  useEffect(() => {
+    console.log('Something logged to the console');
+  });
+
+  The function doesn't take any parameters. It's just an anonymous function.
+  And it will run, whatever code inside the codeblock, 
+  on every render cycle, of the corresponding component.
+
+  In useEffect(), you can send HTTP requests.
+
 
 
 " Controlling useEffect() behavior "
+  useEffect() can be tricky to use because it can run all the time.
+  What if you wanted useEffect to re-render the FIRST time instead of everything?
+
+  You can add a second argument, which is an array.
+  Inside the Array would store all the things or elements useEffect() uses for re-rendering.
+
+  useEffect(() => {
+    console.log('Use effect');
+  }, [props.component])
+
+  Use effect will now watch and re-render on changes to the "props.component".
+  You can have as many useEffect() as you need.
+
+  What if you wanted this to render only on the FIRST time?
+  
+    You can pass an EMPTY array.
+    The empty array tells React that you have no dependencies,
+    and should run only when one of these dependencies changes.
+
+    If you have no dependencies, there can never be no changes,
+    therefore it can never re-run except for the initial render.
+
+
+
 " Cleaning up with Lifecycle Hooks and useEffect() "
 " Cleanup Work with useEffect() - Extended "
 " Using shouldComponentUpdate for Optimization "

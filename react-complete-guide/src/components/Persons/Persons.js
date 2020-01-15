@@ -9,23 +9,23 @@ class Persons extends Component {
   //   return state;
   // }
 
-  shouldComponentUpdate(nextProps, nextState) {
-    console.log('[Persons.js] shouldComponentUpdate');
-    return true;
-  }
+  // shouldComponentUpdate(nextProps, nextState) {
+  //   console.log('[Persons.js] shouldComponentUpdate');
+  //   return true;
+  // }
 
-  getSnapshotBeforeUpdate(prevProps, prevState) {
-    console.log('[Person.js] getSnapshotBeforeUpdate');
-    return null;
-  }
+  // getSnapshotBeforeUpdate(prevProps, prevState) {
+  //   console.log('[Person.js] getSnapshotBeforeUpdate');
+  //   return null;
+  // }
 
-  componentDidUpdate() {
-    console.log('[Persons.js] componentDidUpdate');
-  }
+  // componentDidUpdate() {
+  //   console.log('[Persons.js] componentDidUpdate');
+  // }
 
-  componentWillUnmount() {
-    console.log('[Persons.js] componentWillUnmount');
-  }
+  // componentWillUnmount() {
+  //   console.log('[Persons.js] componentWillUnmount');
+  // }
 
   render() {
     console.log('[Persons.js] rendering...');
